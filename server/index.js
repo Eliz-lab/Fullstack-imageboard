@@ -2,6 +2,7 @@
 // npm install cors express mongoose
 //npm start // index.js
 //npme inity -y  // node -v // node --version //major.minor.patch
+// new comment
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
