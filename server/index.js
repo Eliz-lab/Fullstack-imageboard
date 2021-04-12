@@ -1,4 +1,4 @@
-//server -backend
+//server -backend entry file (which is the root of the tree)
 // npm install cors express mongoose
 //npm start // index.js
 //npme inity -y  // node -v // node --version //major.minor.patch
