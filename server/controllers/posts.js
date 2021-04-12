@@ -1,7 +1,7 @@
 
 //import {response} from 'express';
 import PostMessage from '../models/postMessage.js';
-
+import mongoose from 'mongoose';
 export const getPosts =  async (req, res) =>{
     try {
         const postMessages = await PostMessage.find();
@@ -21,9 +21,16 @@ export const createPost = async (req, res) =>{
             res.status(409).jason(error);
     }
  };
- //export {getPosts, createPost}
- 
 
+ export const updatePost = async (req, res) => {
+     const {id} = req.params.id;
+     const {title, message, creator, selectedFile, tags} = req.body;
+     if(!mongoose.Types.ObjectId.isValid(id))
+     return res.status(404).send(`Not post with id: ${id}`);
+     const updatePost = {creator, title, message, tags, selectedFile, _id:id};
+     await PostMessage.findByIdAndUpdate(id, updatePost, {new:true});
+ }
+ 
 //https://restapitutorial.com/httpstatuscodes.html
 
 
